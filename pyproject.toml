@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pii-shield"
-version = "1.0.0"
+version = "1.0.1"
 description = "Context-aware PII detection for LLM pipelines and data workflows"
 readme = "README.md"
 license = {text = "MIT"}
@@ -26,7 +26,7 @@ dependencies = [
 ]
 
 [project.scripts]
-pii-shield = "pii_guard.cli:main"
+pii-shield = "pii_shield.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/intellirim/pii-guard"
