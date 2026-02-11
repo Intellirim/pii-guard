@@ -4,14 +4,14 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A production-grade CLI tool that detects personally identifiable information (PII) in text, code, logs, and data files using context-aware pattern matching and statistical scoring. Unlike simple regex scanners, pii-guard analyzes surrounding context to reduce false positives, supports 15+ PII types, and provides masked/redacted output formats.
+A CLI tool that detects personally identifiable information (PII) in text, code, logs, and data files using context-aware pattern matching and statistical scoring. Unlike simple regex scanners, pii-guard analyzes surrounding context to reduce false positives, supports 18 PII types, and provides masked/redacted output formats.
 
 ## Why pii-guard?
 
-- **Context-aware detection**: Reduces false positives by 60% compared to regex-only tools by analyzing surrounding text
+- **Context-aware detection**: Analyzes surrounding text to reduce false positives compared to regex-only tools
 - **Zero external dependencies**: Runs entirely locally with no API calls - fast and privacy-preserving
-- **Built for developers**: Integrates into CI/CD pipelines, pre-commit hooks, and LLM preprocessing in 2 lines of code
-- **Comprehensive coverage**: Detects 50+ PII patterns including SSNs, credit cards, API keys, emails, phone numbers, and more
+- **Built for developers**: Integrates into CI/CD pipelines, pre-commit hooks, and LLM preprocessing
+- **Comprehensive coverage**: Detects 18 PII pattern types including SSNs, credit cards, API keys, emails, phone numbers, and more
 
 ## Installation
 
@@ -73,10 +73,10 @@ pii-guard patterns --list
 
 ## Features
 
-- **50+ PII patterns**: SSNs, credit cards, emails, phone numbers, passports, API keys (AWS, OpenAI, Stripe, GitHub), IBANs, medical IDs, and more
-- **Multiple masking strategies**: Full redaction, partial masking (`***-**-1234`), hash replacement, or token replacement
-- **High performance**: Processes 10MB/sec using compiled regex patterns
-- **Multiple output formats**: Human-readable text, JSON, CSV, or masked output files
+- **18 PII pattern types**: SSNs, credit cards, emails, phone numbers, passports, API keys (AWS, OpenAI, Stripe, GitHub), IBANs, medical IDs, and more
+- **Multiple masking strategies**: Full redaction, partial masking (`***-**-1234`), or hash replacement
+- **Fast processing**: Uses compiled regex patterns for efficient scanning
+- **Multiple output formats**: Human-readable text, JSON, or masked output files
 - **Configurable thresholds**: Balance precision/recall with adjustable confidence scores (0-100)
 - **CI/CD integration**: Returns non-zero exit codes when PII detected, enabling automated pipeline failures
 - **Custom patterns**: Load organization-specific patterns from YAML config files
@@ -151,8 +151,8 @@ custom_patterns:
 pii-guard uses a multi-stage detection pipeline:
 
 1. **Pattern tokenizer**: Splits input into semantic chunks
-2. **Regex matcher**: Identifies 50+ PII patterns
-3. **Context analyzer**: Examines 5-token windows before/after matches
+2. **Regex matcher**: Identifies 18 PII pattern types
+3. **Context analyzer**: Examines surrounding text windows before/after matches
 4. **Validators**: Applies Luhn algorithm, checksums, and format validation
 5. **Statistical scorer**: Combines pattern + context + validation confidence
 6. **Threshold filter**: Configurable cutoff to balance precision/recall
@@ -160,12 +160,12 @@ pii-guard uses a multi-stage detection pipeline:
 
 ## Comparison to Alternatives
 
-| Tool | Setup | Speed | False Positives | Privacy |
-|------|-------|-------|-----------------|---------|
-| **pii-guard** | `pip install` | 10MB/s | Low (context-aware) | 100% local |
-| Presidio | Complex (models + APIs) | Slow | Medium | Requires external calls |
-| scrubadub | `pip install` | Fast | High (40%+ regex only) | 100% local |
-| Enterprise DLP | Hours of config | Varies | Low | SaaS/cloud-based |
+| Tool | Setup | False Positives | Privacy |
+|------|-------|-----------------|---------|
+| **pii-guard** | `pip install` | Low (context-aware) | 100% local |
+| Presidio | Complex (models + APIs) | Medium | Requires external calls |
+| scrubadub | `pip install` | High (regex only) | 100% local |
+| Enterprise DLP | Hours of config | Low | SaaS/cloud-based |
 
 ## License
 
