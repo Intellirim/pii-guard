@@ -1,7 +1,7 @@
 """Pytest fixtures."""
 
 import pytest
-from pii_guard.scanner import Scanner
+from pii_shield.scanner import Scanner
 
 
 @pytest.fixture

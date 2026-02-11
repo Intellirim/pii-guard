@@ -1,7 +1,7 @@
 """Minimal tests for scanner."""
 
 import pytest
-from pii_guard.scanner import Scanner
+from pii_shield.scanner import Scanner
 
 
 def test_scan_text_basic():

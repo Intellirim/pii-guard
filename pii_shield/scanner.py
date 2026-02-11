@@ -3,11 +3,11 @@
 from typing import List
 from pathlib import Path
 
-from pii_guard.models import PIIMatch, ScanResult
-from pii_guard.patterns import PATTERNS
-from pii_guard.context import ContextAnalyzer
-from pii_guard.validators import luhn_check, email_domain_check, ssn_format_validation, iban_checksum, api_key_entropy_check
-from pii_guard.tokenizer import Tokenizer
+from pii_shield.models import PIIMatch, ScanResult
+from pii_shield.patterns import PATTERNS
+from pii_shield.context import ContextAnalyzer
+from pii_shield.validators import luhn_check, email_domain_check, ssn_format_validation, iban_checksum, api_key_entropy_check
+from pii_shield.tokenizer import Tokenizer
 
 
 class Scanner:

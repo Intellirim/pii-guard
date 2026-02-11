@@ -2,7 +2,7 @@
 
 import pytest
 from click.testing import CliRunner
-from pii_guard.cli import cli
+from pii_shield.cli import cli
 
 
 def test_cli_version():

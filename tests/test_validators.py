@@ -1,6 +1,6 @@
 """Minimal tests for validators."""
 
-from pii_guard.validators import (
+from pii_shield.validators import (
     luhn_check, email_domain_check, ssn_format_validation,
     iban_checksum, api_key_entropy_check
 )

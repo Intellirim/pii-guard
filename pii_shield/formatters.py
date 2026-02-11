@@ -2,7 +2,7 @@
 
 import json
 from typing import List
-from pii_guard.models import ScanResult
+from pii_shield.models import ScanResult
 
 
 class TextFormatter:

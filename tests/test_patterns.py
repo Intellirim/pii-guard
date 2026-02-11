@@ -1,6 +1,6 @@
 """Minimal tests for patterns."""
 
-from pii_guard.patterns import PATTERNS
+from pii_shield.patterns import PATTERNS
 
 
 def test_email_pattern():

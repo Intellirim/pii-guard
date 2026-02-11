@@ -2,7 +2,7 @@
 
 __version__ = "1.0.0"
 
-from pii_guard.scanner import Scanner
-from pii_guard.models import PIIMatch, ScanResult, MaskingStrategy
+from pii_shield.scanner import Scanner
+from pii_shield.models import PIIMatch, ScanResult, MaskingStrategy
 
 __all__ = ["Scanner", "PIIMatch", "ScanResult", "MaskingStrategy", "__version__"]

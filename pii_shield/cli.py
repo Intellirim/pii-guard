@@ -5,12 +5,12 @@ import click
 from pathlib import Path
 from typing import Optional
 
-from pii_guard import __version__
-from pii_guard.scanner import Scanner
-from pii_guard.masker import Masker
-from pii_guard.models import MaskingStrategy
-from pii_guard.formatters import TextFormatter, JSONFormatter, CSVFormatter
-from pii_guard.patterns import PATTERNS, get_pattern_categories, get_pattern_info
+from pii_shield import __version__
+from pii_shield.scanner import Scanner
+from pii_shield.masker import Masker
+from pii_shield.models import MaskingStrategy
+from pii_shield.formatters import TextFormatter, JSONFormatter, CSVFormatter
+from pii_shield.patterns import PATTERNS, get_pattern_categories, get_pattern_info
 
 
 @click.group()

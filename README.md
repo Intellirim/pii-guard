@@ -1,12 +1,12 @@
-# pii-guard
+# pii-shield
 
 **Context-aware PII detection for LLM pipelines and data workflows**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A CLI tool that detects personally identifiable information (PII) in text, code, logs, and data files using context-aware pattern matching and statistical scoring. Unlike simple regex scanners, pii-guard analyzes surrounding context to reduce false positives, supports 18 PII types, and provides masked/redacted output formats.
+A CLI tool that detects personally identifiable information (PII) in text, code, logs, and data files using context-aware pattern matching and statistical scoring. Unlike simple regex scanners, pii-shield analyzes surrounding context to reduce false positives, supports 18 PII types, and provides masked/redacted output formats.
 
-## Why pii-guard?
+## Why pii-shield?
 
 - **Context-aware detection**: Analyzes surrounding text to reduce false positives compared to regex-only tools
 - **Zero external dependencies**: Runs entirely locally with no API calls - fast and privacy-preserving
@@ -16,7 +16,7 @@ A CLI tool that detects personally identifiable information (PII) in text, code,
 ## Installation
 
 ```bash
-pip install pii-guard
+pip install pii-shield
 ```
 
 ## Quick Start
@@ -24,7 +24,7 @@ pip install pii-guard
 Scan a file for PII:
 
 ```bash
-pii-guard scan input.txt
+pii-shield scan input.txt
 ```
 
 Output:
@@ -45,13 +45,13 @@ Summary: 2 PII instances found in 1 file
 Mask PII and save to a new file:
 
 ```bash
-pii-guard scan --mask partial --output clean.txt input.txt
+pii-shield scan --mask partial --output clean.txt input.txt
 ```
 
 Process stdin for pipeline integration:
 
 ```bash
-echo 'Email: alice@company.com, SSN: 123-45-6789' | pii-guard scan --stdin --mask full
+echo 'Email: alice@company.com, SSN: 123-45-6789' | pii-shield scan --stdin --mask full
 ```
 
 Output:
@@ -62,13 +62,13 @@ Email: [EMAIL_REDACTED], SSN: [SSN_REDACTED]
 Scan a directory with JSON output for CI/CD:
 
 ```bash
-pii-guard scan --format json --threshold 80 ./logs/
+pii-shield scan --format json --threshold 80 ./logs/
 ```
 
 List all supported PII patterns:
 
 ```bash
-pii-guard patterns --list
+pii-shield patterns --list
 ```
 
 ## Features
@@ -86,13 +86,13 @@ pii-guard patterns --list
 ### Scan with custom threshold
 
 ```bash
-pii-guard scan --threshold 90 sensitive_data.txt
+pii-shield scan --threshold 90 sensitive_data.txt
 ```
 
 ### Batch processing
 
 ```bash
-pii-guard scan --format json ./logs/ > pii_report.json
+pii-shield scan --format json ./logs/ > pii_report.json
 ```
 
 ### Pre-commit hook integration
@@ -103,9 +103,9 @@ Add to `.pre-commit-config.yaml`:
 repos:
   - repo: local
     hooks:
-      - id: pii-guard
+      - id: pii-shield
         name: PII Detection
-        entry: pii-guard scan --format json --threshold 70
+        entry: pii-shield scan --format json --threshold 70
         language: system
         pass_filenames: true
 ```
@@ -115,8 +115,8 @@ repos:
 ```yaml
 - name: Scan for PII
   run: |
-    pip install pii-guard
-    pii-guard scan --format json --threshold 80 ./src/
+    pip install pii-shield
+    pii-shield scan --format json --threshold 80 ./src/
 ```
 
 ## Supported PII Types
@@ -130,7 +130,7 @@ repos:
 
 ## Configuration
 
-Create a `pii-guard.yaml` file:
+Create a `pii-shield.yaml` file:
 
 ```yaml
 threshold: 70
@@ -148,7 +148,7 @@ custom_patterns:
 
 ## How It Works
 
-pii-guard uses a multi-stage detection pipeline:
+pii-shield uses a multi-stage detection pipeline:
 
 1. **Pattern tokenizer**: Splits input into semantic chunks
 2. **Regex matcher**: Identifies 18 PII pattern types
@@ -162,7 +162,7 @@ pii-guard uses a multi-stage detection pipeline:
 
 | Tool | Setup | False Positives | Privacy |
 |------|-------|-----------------|---------|
-| **pii-guard** | `pip install` | Low (context-aware) | 100% local |
+| **pii-shield** | `pip install` | Low (context-aware) | 100% local |
 | Presidio | Complex (models + APIs) | Medium | Requires external calls |
 | scrubadub | `pip install` | High (regex only) | 100% local |
 | Enterprise DLP | Hours of config | Low | SaaS/cloud-based |

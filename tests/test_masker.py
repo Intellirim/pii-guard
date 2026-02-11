@@ -1,7 +1,7 @@
 """Minimal tests for masker."""
 
-from pii_guard.masker import Masker
-from pii_guard.models import MaskingStrategy
+from pii_shield.masker import Masker
+from pii_shield.models import MaskingStrategy
 
 
 def test_full_masking():

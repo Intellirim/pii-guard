@@ -1,6 +1,6 @@
 """Minimal tests for context."""
 
-from pii_guard.context import ContextAnalyzer
+from pii_shield.context import ContextAnalyzer
 
 
 def test_context_analyzer():

@@ -1,7 +1,7 @@
 """Masking strategies for PII redaction."""
 
 import hashlib
-from pii_guard.models import MaskingStrategy
+from pii_shield.models import MaskingStrategy
 
 
 class Masker:

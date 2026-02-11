@@ -1,9 +1,9 @@
 """Comprehensive edge case tests for PII detection."""
 
 import pytest
-from pii_guard.scanner import Scanner
-from pii_guard.masker import Masker
-from pii_guard.models import MaskingStrategy
+from pii_shield.scanner import Scanner
+from pii_shield.masker import Masker
+from pii_shield.models import MaskingStrategy
 
 
 def test_binary_file_handling():
