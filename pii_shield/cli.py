@@ -27,13 +27,15 @@ def cli():
 @click.option('--format', '-f', type=click.Choice(['text', 'json', 'csv']), default='text', help='Output format')
 @click.option('--mask', '-m', type=click.Choice(['full', 'partial', 'hash', 'token']), help='Masking strategy')
 @click.option('--output', '-o', type=click.Path(), help='Output file for masked content')
+@click.option('--html', is_flag=True, help='Generate HTML report and open in browser')
 def scan(
     path: Optional[str],
     stdin: bool,
     threshold: int,
     format: str,
     mask: Optional[str],
-    output: Optional[str]
+    output: Optional[str],
+    html: bool,
 ):
     """
     Scan files or directories for PII.
@@ -102,6 +104,15 @@ def scan(
             click.echo("Error: --output only supported for single files", err=True)
             sys.exit(1)
 
+        return
+
+    # HTML report mode
+    if html:
+        from pii_shield.report import export_html
+        import webbrowser
+        report_path = export_html(results)
+        click.echo(f"Report saved: {report_path}")
+        webbrowser.open(f"file://{report_path}")
         return
 
     # Format output

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pii-shield"
-version = "1.0.1"
+version = "1.1.0"
 description = "Context-aware PII detection for LLM pipelines and data workflows"
 readme = "README.md"
 license = {text = "MIT"}

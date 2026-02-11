@@ -1,6 +1,6 @@
 """pii-guard: Context-aware PII detection for LLM pipelines and data workflows."""
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 from pii_shield.scanner import Scanner
 from pii_shield.models import PIIMatch, ScanResult, MaskingStrategy
