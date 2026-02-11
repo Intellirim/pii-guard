@@ -1,0 +1,28 @@
+Sample Data File for Testing PII Detection
+
+Contact Information:
+Name: John Doe
+Email: john.doe@example.com
+Phone: (555) 123-4567
+Address: 123 Main Street, Anytown, CA 12345
+
+Personal Identifiers:
+SSN: 123-45-6789
+DOB: 03/15/1985
+Passport: AB1234567
+
+Financial Information:
+Credit Card: 4532-1234-5678-9010
+IBAN: GB82WEST12345698765432
+
+API Credentials:
+AWS Key: AKIAIOSFODNN7EXAMPLE
+OpenAI Key: sk-proj1234567890abcdefghijklmnopqrstuvwxyz123456
+
+System Information:
+Server IP: 192.168.1.100
+Version: 1.2.3
+
+Notes:
+This file contains various types of PII for testing purposes.
+Contact support@example.com if you have questions.
